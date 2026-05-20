@@ -3,21 +3,23 @@ pipeline {
 
     stages {
 
-        stage('Build') {
+        stage('System Info') {
             steps {
-                echo 'Building dev branch'
+                sh 'echo "Current User:"'
+                sh 'whoami'
+
+                sh 'echo "Current Directory:"'
+                sh 'pwd'
+
+                sh 'echo "Hostname:"'
+                sh 'hostname'
             }
         }
 
-        stage('Test') {
+        stage('Files') {
             steps {
-                echo 'Running Tests dev branch...'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying Application dev branch '
+                sh 'echo "Listing Files:"'
+                sh 'ls -la'
             }
         }
     }
